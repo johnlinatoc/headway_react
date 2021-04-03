@@ -1,8 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 
 const ResultsContainer = (props) => {
-  const linkInput = useRef(null);
-
   const copyText = (id) => {
     const copyTextarea = document.querySelector(`#link-${id}`);
     copyTextarea.focus();
@@ -22,7 +20,6 @@ const ResultsContainer = (props) => {
       return (
         <div>
           <textarea
-            ref={linkInput}
             id={`link-${index}`}
             readonly
             disabled

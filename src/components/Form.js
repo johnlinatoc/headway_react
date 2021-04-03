@@ -21,6 +21,7 @@ const Form = (props) => {
 
   return (
     <form
+      className={"flex flex-col"}
       onSubmit={(e) => {
         e.preventDefault();
         createLink({ variables: { url: inputLink, slug: inputSlug } });
