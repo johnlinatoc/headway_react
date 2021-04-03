@@ -21,7 +21,7 @@ const Form = (props) => {
 
   return (
     <form
-      className={"flex flex-col"}
+      className={"flex flex-col p-4 bg-blue-900"}
       onSubmit={(e) => {
         e.preventDefault();
         createLink({ variables: { url: inputLink, slug: inputSlug } });
@@ -29,29 +29,27 @@ const Form = (props) => {
         setInputSlug("");
       }}
     >
-      <label>Make your links shorter!</label>
       <input
         type="url"
-        className={"form-contol"}
-        placeholder="Add Link Here"
+        className={"form-contol mt-4 h-10 rounded text-center"}
+        placeholder="Make your links shorter"
         value={inputLink}
         required
         onChange={(e) => {
           setInputLink(e.target.value);
         }}
       />
-      <label>Add unique identifier (Optional)</label>
       <input
         type="text"
-        className={"form-contol"}
-        placeholder="ex: 1234"
+        className={"form-contol mt-2 h-10 rounded text-center"}
+        placeholder="(Optional) Add unique code"
         value={inputSlug}
         onChange={(e) => {
           setInputSlug(e.target.value);
         }}
       />
-      <button type="submit" className={"btn btn-primary"}>
-        Submit
+      <button type="submit" className={"btn btn-primary mt-4"}>
+        Shorten URL
       </button>
     </form>
   );
