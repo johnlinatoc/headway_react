@@ -20,13 +20,18 @@ const ResultsContainer = (props) => {
   const renderLinks = () =>
     props.links.map((link, index) => {
       return (
-        <>
+        <div>
           <textarea
             ref={linkInput}
             id={`link-${index}`}
             readonly
             disabled
-            style={{ resize: "none" }}
+            style={{
+              resize: "none",
+              border: "none",
+              outline: "none",
+              background: "transparent"
+            }}
           >
             {link.url}
           </textarea>
@@ -38,7 +43,7 @@ const ResultsContainer = (props) => {
           >
             Copy
           </button>
-        </>
+        </div>
       );
     });
 
