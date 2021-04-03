@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CREATE_LINK } from "../graphQL/queries";
 
 const Form = (props) => {
@@ -18,6 +18,10 @@ const Form = (props) => {
       }
     }
   });
+
+  useEffect(() => {
+    props.refetch();
+  }, [props]);
 
   return (
     <form
@@ -48,7 +52,7 @@ const Form = (props) => {
           setInputSlug(e.target.value);
         }}
       />
-      <button type="submit" className={"btn btn-primary mt-4"}>
+      <button type="submit" className={"btn btn-primary mt-4 mb-2"}>
         Shorten URL
       </button>
     </form>

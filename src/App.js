@@ -17,7 +17,7 @@ export default function App() {
   if (error) return `Error! ${error}`;
 
   return (
-    <div className="App">
+    <div className="App bg-gray-100 min-h-screen xl:max-w-screen-xl mx-auto">
       <Form refetch={refetch} />
       <ResultsContainer links={allLinks} />
     </div>
