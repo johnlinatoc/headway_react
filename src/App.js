@@ -1,36 +1,22 @@
+import { useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
+import ResultsContainer from "./components/ResultsContainer";
+import { GET_ALL_LINKS } from "./graphQL/getAllLinksQuery";
 import "./styles.css";
-import {
-  ApolloClient,
-  InMemoryCache,
-  gql,
-  ApolloProvider,
-  useQuery
-} from "@apollo/client";
-
-const client = new ApolloClient({
-  uri: "https://87hxc.sse.codesandbox.io/",
-  cache: new InMemoryCache()
-});
-
-client
-  .query({
-    query: gql`
-      query {
-        allLinks {
-          url
-        }
-      }
-    `
-  })
-  .then((result) => console.log(result));
 
 export default function App() {
+  const { loading, error, data } = useQuery(GET_ALL_LINKS);
+  const [allLinks, setAllLinks] = useState([]);
+
+  useEffect(() => {
+    return !loading && !error && setAllLinks(data.allLinks);
+  }, [data, loading, error]);
+
   return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <h1>Hello CodeSandbox</h1>
-        <h2>Start editing to see some magic happen!</h2>
-      </div>
-    </ApolloProvider>
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+      <ResultsContainer links={allLinks} />
+    </div>
   );
 }
