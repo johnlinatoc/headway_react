@@ -17,9 +17,12 @@ export default function App() {
   if (error) return `Error! ${error}`;
 
   return (
-    <div className="App bg-gray-100 min-h-screen xl:max-w-screen-2xl mx-auto">
+    <main className="App bg-gray-100 min-h-screen xl:max-w-screen-2xl mx-auto">
+      <h1 className="py-6 text-blue-900 font-semibold text-2xl bg-gray-100">
+        Link Shortner
+      </h1>
       <Form refetch={refetch} />
       <LinksContainer links={allLinks} />
-    </div>
+    </main>
   );
 }

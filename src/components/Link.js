@@ -22,6 +22,7 @@ const Link = (props) => {
         id={`link-${props.index}`}
         readOnly
         className="w-4/5 my-auto leading-4 py-2"
+        aria-label="New Link"
         style={{
           resize: "none",
           border: "none",

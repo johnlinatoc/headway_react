@@ -32,7 +32,7 @@ const Form = (props) => {
         setInputSlug("");
       }}
     >
-      <div className="flex flex-col md:flex-row  md:w-9/12 md:items-center">
+      <div className="flex flex-col md:flex-row md:w-9/12 md:items-center">
         <input
           type="url"
           className={
