@@ -5,13 +5,10 @@ import { CREATE_LINK } from "../graphQL/queries";
 const Form = (props) => {
   const [inputLink, setInputLink] = useState("");
   const [inputSlug, setInputSlug] = useState("");
-  const [
-    createLink,
-    { loading: mutationLoading, error: mutationError }
-  ] = useMutation(CREATE_LINK, {
+  const [createLink] = useMutation(CREATE_LINK, {
     onCompleted({ createLink }) {
       if (createLink) {
-        alert("link added!");
+        alert("Link added!");
         props.refetch();
         setInputLink("");
         setInputSlug("");
