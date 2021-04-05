@@ -2,7 +2,7 @@ import React from "react";
 
 const Link = (props) => {
   const copyText = (id) => {
-    const copyTextarea = document.querySelector(`#link-${id}`);
+    const copyTextarea = document.getElementById(`link-${id}`);
     copyTextarea.focus();
     copyTextarea.select();
 
