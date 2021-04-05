@@ -25,7 +25,9 @@ const Form = (props) => {
 
   return (
     <form
-      className={"flex flex-col pt-10 px-4 pb-4 bg-blue-900 md:flex-row "}
+      className={
+        "flex flex-col pt-10 px-4 pb-4 bg-blue-900 md:flex-row justify-between"
+      }
       onSubmit={(e) => {
         e.preventDefault();
         createLink({ variables: { url: inputLink, slug: inputSlug } });
@@ -48,7 +50,7 @@ const Form = (props) => {
         />
         <input
           type="text"
-          className={"form-contol h-10 md:ml-2 md:w-full rounded text-center"}
+          className={"form-contol h-10 md:ml-6 md:w-full rounded text-center"}
           placeholder="(Optional) Add unique code"
           value={inputSlug}
           onChange={(e) => {
@@ -56,7 +58,7 @@ const Form = (props) => {
           }}
         />
       </div>
-      <button type="submit" className={"btn btn-primary mt-4 md:mb-6 md:ml-10"}>
+      <button type="submit" className={"btn btn-primary mt-4 md:mb-6 md:w-1/5"}>
         Shorten URL
       </button>
     </form>
